@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h4>
+{{#name}}
+Hello, {{name}}
+</h4>
+<form action="/home" method="post">
+    <input type="text" placeholder="Enter a message" name="message"/>
+    <button type="submit">Submit</button>
+</form>
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+<form action="/delete" method="post">
+    <input type="text" placeholder="Message #" name="messageDelete"/>
+    <button type="submit">Delete</button>
+</form>
+
+<form action="/edit" method="post">
+    <input type="text" placeholder="Message #" name="number"/>
+    <input type="text" placeholder="Edit Message" name="edit"/>
+    <button type="submit">Submit</button>
+</form>
+<ol>
+    {{#messages}}
+    <li>{{.}}</li>
+    {{/messages}}
+</ol>
+</body>
+{{/name}}
+</html>
