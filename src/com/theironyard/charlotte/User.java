@@ -8,7 +8,7 @@ public class User {
     String name;
     String password;
 
-    ArrayList<String> messages = new ArrayList<>();
+    ArrayList<Book> books = new ArrayList<>();
 
     public User(String name, String password) {
         this.name = name;
@@ -31,12 +31,12 @@ public class User {
         this.password = password;
     }
 
-    public ArrayList<String> getMessages() {
-        return messages;
+    public ArrayList<Book> getBooks() {
+        return books;
     }
 
-    public void setMessages(ArrayList<String> messages) {
-        this.messages = messages;
+    public void setBooks(ArrayList<Book> books) {
+        this.books = books;
     }
 
 

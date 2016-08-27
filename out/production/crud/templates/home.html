@@ -3,14 +3,21 @@
 <body>
 <h4>
 {{#name}}
-Hello, {{name}}
+Hi, {{name}}!
+    Here you can keep track of the books you've read!
 </h4>
-<form action="/home" method="post">
-    <input type="text" placeholder="Enter a message" name="message"/>
-    <button type="submit">Submit</button>
-</form>
 <form action="/logout" method="post">
     <button type="submit">Logout</button>
+</form>
+<form action="/home" method="post">
+    <input type="text" placeholder="Title" name="title"/>
+    <input type="text" placeholder="Author" name="author"/>
+    <!--Finished?-->
+    <!--<select name="read">-->
+        <!--<option value="yes">Yes</option>-->
+        <!--<option value="no">No</option>-->
+    <!--</select>-->
+    <button type="submit">Submit</button>
 </form>
 <form action="/delete" method="post">
     <input type="text" placeholder="Message #" name="messageDelete"/>
@@ -23,9 +30,9 @@ Hello, {{name}}
     <button type="submit">Submit</button>
 </form>
 <ol>
-    {{#messages}}
+    {{#books}}
     <li>{{.}}</li>
-    {{/messages}}
+    {{/books}}
 </ol>
 </body>
 {{/name}}

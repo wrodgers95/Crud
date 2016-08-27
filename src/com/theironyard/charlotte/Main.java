@@ -14,7 +14,6 @@ public class Main {
     public static void main(String[] args) {
 
         Spark.init();
-        new MustacheTemplateEngine();
 
         Spark.get(
 
@@ -33,7 +32,7 @@ public class Main {
 
                     HashMap m = new HashMap<>();
 
-                    // if no user exists, redirect to login screen else to go messages screen
+                    // if no user exists, redirect to login screen else to go books screen
                     if (user == null) {
 
                         return new ModelAndView(m, "login.html");
@@ -42,7 +41,7 @@ public class Main {
 
                         m.put("name", user.name);
 
-                        m.put("messages", user.messages);
+                        m.put("books", user.books);
 
                         return new ModelAndView(m, "home.html");
                     }
@@ -76,7 +75,7 @@ public class Main {
 
         Spark.post(
 
-                // home & messages screen
+                // home & books screen
                 "/home",
 
                 ((request, response) -> {
@@ -89,11 +88,14 @@ public class Main {
 
                     User user = users.get(name);
 
-                    // requesting input (message)
+                    // requesting input (book)
 
-                    user.messages.add(request.queryParams("message"));
+                    String title = request.queryParams("title");
+                    String author = request.queryParams("author");
 
-                    // staying on home (messages) screen
+                    Book newBook = new Book (title, author);
+                    user.books.add(newBook);
+                    // staying on home (books) screen
 
                     response.redirect("/");
 
@@ -136,7 +138,7 @@ public class Main {
 
                     User user = users.get(name);
 
-                    user.messages.remove(i);
+                    user.books.remove(i);
 
                     response.redirect("/");
 
@@ -144,28 +146,28 @@ public class Main {
 
                 }));
 
-        Spark.post(
-
-                "/edit",
-
-                ((request, response) -> {
-
-                    Session session = request.session();
-
-                    String name = session.attribute("loginName");
-
-                    int update = (Integer.valueOf(request.queryParams("number")) - 1);
-
-                    String text = request.queryParams("edit");
-
-                    User user = users.get(name);
-
-                    user.messages.set(update, text);
-
-                    response.redirect("/");
-
-                    return "";
-                })
-        );
+//        Spark.post(
+//
+//                "/edit",
+//
+//                ((request, response) -> {
+//
+//                    Session session = request.session();
+//
+//                    String name = session.attribute("loginName");
+//
+//                    int update = (Integer.valueOf(request.queryParams("number")) - 1);
+//
+//                    Book text = request.queryParams("edit");
+//
+//                    User user = users.get(name);
+//
+//                    user.books.set(update, text);
+//
+//                    response.redirect("/");
+//
+//                    return "";
+//                })
+//        );
     }
 }

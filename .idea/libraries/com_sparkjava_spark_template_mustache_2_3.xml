@@ -23,6 +23,8 @@
       <root url="jar://$MAVEN_REPOSITORY$/com/github/spullara/mustache/java/compiler/0.9.0/compiler-0.9.0.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/spark-core-2.3-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
