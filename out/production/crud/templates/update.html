@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Update</title>
+</head>
+<body>
+Press submit to update your information
+{{#books}}
+{{title}}, {{author}}
+<form action="/update-entry/{{id}}" method="post">
+    <input type="text" placeholder="Title" name="title"/>
+    <input type="text" placeholder="Author" name="author"/>
+    <input type="hidden" value="{{id}}" name="updateID">
+    <button type="submit">Submit</button>
+</form>
+{{/books}}
+</body>
+</html>
