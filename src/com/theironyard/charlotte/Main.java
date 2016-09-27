@@ -87,6 +87,7 @@ public class Main {
 
                     Book newBook = new Book (title, author);
                     user.books.add(newBook);
+                    Book.numberOfBooks ++;
 
                     response.redirect("/");
 
@@ -127,7 +128,11 @@ public class Main {
                     User user = users.get(name);
 
                     int bookEntry = Integer.valueOf(request.queryParams("deleteID"));
-
+                    for (int i = 0; i < bookEntry; i++){
+                        if (bookEntry <= i) {
+                            bookEntry ++;
+                        }
+                    }
                     user.books.remove(bookEntry);
 
                     response.redirect("/");
@@ -146,11 +151,11 @@ public class Main {
 
                     User user = users.get(name);
 
-                    int bookID = Integer.valueOf(request.params("id"));
+                    int bookID = Integer.valueOf(request.params("updateId"));
 
                     HashMap m = new HashMap<>();
 
-                    m.put("id", bookID);
+                    m.put("updateId", bookID);
 
                     m.put("name", user.name);
 
@@ -181,6 +186,7 @@ public class Main {
                     Book newBook = new Book (title, author);
 
                     user.books.set(bookEntry, newBook);
+//                    Book.numberOfBooks++;
 
                     response.redirect("/");
 

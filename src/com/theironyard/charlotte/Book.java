@@ -11,7 +11,6 @@ public class Book {
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
-        this.id = numberOfBooks ++;
 
 //        this.read = read;
     }

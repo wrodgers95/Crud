@@ -12,11 +12,6 @@ Hi, {{name}}!
 <form action="/home" method="post">
     <input type="text" placeholder="Title" name="title"/>
     <input type="text" placeholder="Author" name="author"/>
-    <!--Finished?-->
-    <!--<select name="read">-->
-        <!--<option value="yes">Yes</option>-->
-        <!--<option value="no">No</option>-->
-    <!--</select>-->
     <button type="submit">Submit</button>
 </form>
 
@@ -25,7 +20,7 @@ Hi, {{name}}!
     <li>{{title}} by {{author}}
         <form action="">
             <input type="checkbox" name="read" value="yes">Finished reading <br>
-            <input type="checkbox" name="read" value="no">Not finished
+            <input  type="checkbox" name="read" value="no">Not finished
         </form>
         <form action="/delete" method="post">
             <input type="hidden" value="{{id}}" name="deleteID"/>
@@ -33,7 +28,7 @@ Hi, {{name}}!
         </form>
         <form action="/update-book/{{id}}" method="get">
             <input type="hidden" value="{{id}}" name="updateID">
-            <button type="submit">Update Book Information</button>
+            <button type="submit">Update</button>
         </form>
     </li>
     {{/books}}
